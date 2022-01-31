@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 class AuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   //signup user
   Future<String> signupUser({
     required String name,

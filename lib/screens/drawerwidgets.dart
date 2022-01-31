@@ -1,3 +1,5 @@
+import 'package:classroom/screens/dashboard.dart';
+import 'package:classroom/screens/details.dart';
 import 'package:classroom/screens/results.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -81,18 +83,26 @@ class _navigationDrawerWidgetState extends State<navigationDrawerWidget> {
           color: const Color(0xFFCC2944),
           child: Padding(
             padding: const EdgeInsets.fromLTRB(10, 35, 0, 0),
-            child: Column(
-              children: [
-                menuItem(
-                    Icons.event, 'Scheduled Events', const scheduledEvents()),
-                menuItem(Icons.score, 'Results', const results()),
-                menuItem(Icons.book, 'Notes', const scheduledEvents()),
-                menuItem(Icons.message, 'Messaging', const scheduledEvents()),
-                menuItem(Icons.dangerous, '--BUNK--', const scheduledEvents()),
-                menuItem(
-                    Icons.dining, 'Hangout planner', const scheduledEvents()),
-                menuItem(Icons.map, 'Location', const scheduledEvents()),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  menuItem(
+                      Icons.event, 'Scheduled Events', const scheduledEvents()),
+                  menuItem(Icons.score, 'Results', const results()),
+                  menuItem(Icons.book, 'Notes', const scheduledEvents()),
+                  menuItem(Icons.message, 'Messaging', const scheduledEvents()),
+                  menuItem(
+                      Icons.dangerous, '--BUNK--', const scheduledEvents()),
+                  menuItem(
+                      Icons.dining, 'Hangout planner', const scheduledEvents()),
+                  menuItem(Icons.map, 'Location', const scheduledEvents()),
+                  const SizedBox(
+                    height: 100,
+                  ),
+                  //todo: create a new settings page
+                  menuItem(Icons.settings, 'Update Details', const details()),
+                ],
+              ),
             ),
           ),
         ),

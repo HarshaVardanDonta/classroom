@@ -54,14 +54,14 @@ class _signInState extends State<signIn> {
             const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: customTextField(
-                  'Enter your email id ...', 'Email id', signInEmailController),
+              child: customTextField('Enter your email id ...', 'Email id',
+                  signInEmailController, false),
             ),
             const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: customTextField(
-                  'Enter your password ...', 'Password', signInPassController),
+              child: customTextField('Enter your password ...', 'Password',
+                  signInPassController, true),
             ),
             const SizedBox(
               height: 30,

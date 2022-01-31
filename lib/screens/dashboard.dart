@@ -1,6 +1,8 @@
 import 'package:classroom/results/cseresult.dart';
 import 'package:classroom/screens/details.dart';
 import 'package:classroom/screens/signin.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -102,6 +104,7 @@ class _dashboardState extends State<dashboard> {
                           const SizedBox(
                             width: 20,
                           ),
+                          //todo:read name from database
                           Flexible(child: user(nameController.text)),
                           const SizedBox(
                             width: 10,
@@ -112,10 +115,12 @@ class _dashboardState extends State<dashboard> {
                     const SizedBox(
                       height: 50,
                     ),
+                    //todo: read data (branch) from database
                     dashboardText('Class : ' + branchController.text),
                     const SizedBox(
                       height: 10,
                     ),
+                    //todo:read semester from database
                     dashboardText("Semester: " + semesterController.text),
                     const SizedBox(
                       height: 10,
@@ -128,6 +133,8 @@ class _dashboardState extends State<dashboard> {
                     const SizedBox(
                       height: 10,
                     ),
+                    //todo:read data(cgpa) from database
+
                     dashboardText(
                         'Current CGPA : ' + resultCse.toStringAsFixed(2)),
                     const SizedBox(

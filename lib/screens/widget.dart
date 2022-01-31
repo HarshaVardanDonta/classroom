@@ -99,8 +99,9 @@ Text myclassText(String x) {
 }
 
 TextField customTextField(
-    String y, String x, TextEditingController controller) {
+    String y, String x, TextEditingController controller, bool value) {
   return TextField(
+    obscureText: value,
     controller: controller,
     style: const TextStyle(color: Colors.white),
     decoration: InputDecoration(

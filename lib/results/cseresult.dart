@@ -176,17 +176,19 @@ final eScienceController = TextEditingController();
 late double resultCse = 0.0;
 final semNoController = TextEditingController();
 riskFactor() async {
-  if (branchController.text == "CSE") {
-    if (semNoController.text == "1") {
-      resultCse = (semOneGpa) / 1;
-    } else if (semNoController.text == "2") {
-      resultCse = (semOneGpa + semTwoGpa) / 2;
-    } else if (semNoController.text == "3") {
-      resultCse = (semOneGpa + semTwoGpa + semThreeGpa) / 3;
-    }
+  if (semNoController.text == "1") {
+    resultCse = (semOneGpa) / 1;
+  } else if (semNoController.text == "2") {
+    resultCse = (semOneGpa + semTwoGpa) / 2;
+  } else if (semNoController.text == "3") {
+    resultCse = (semOneGpa + semTwoGpa + semThreeGpa) / 3;
   }
+
   return resultCse;
 }
+
+final FirebaseAuth auth = FirebaseAuth.instance;
+final User? fUser = auth.currentUser;
 
 class _cseResultState extends State<cseResult> {
   @override
@@ -1427,10 +1429,16 @@ class _cseResultState extends State<cseResult> {
                   onPressed: () {
                     setState(() {
                       riskFactor();
+                      FirebaseFirestore.instance
+                          .collection('cgpa')
+                          .doc(auth.currentUser?.uid)
+                          .set({
+                        'cgpa': resultCse.toString(),
+                      });
                     });
                   },
                   child: Text(
-                    "CGPA is: " + resultCse.toString(),
+                    "CGPA is: " + resultCse.toStringAsFixed(2),
                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
