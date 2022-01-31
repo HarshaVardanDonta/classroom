@@ -134,7 +134,6 @@ class _dashboardState extends State<dashboard> {
                       height: 10,
                     ),
                     //todo:read data(cgpa) from database
-
                     dashboardText(
                         'Current CGPA : ' + resultCse.toStringAsFixed(2)),
                     const SizedBox(
