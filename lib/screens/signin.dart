@@ -30,7 +30,7 @@ class _signInState extends State<signIn> {
       );
     } else {
       const snackBar = SnackBar(
-        content: Text('invalid details'),
+        content: Text('invalid details(try removing unnecessary whitespaces)'),
       );
 
 // Find the ScaffoldMessenger in the widget tree
